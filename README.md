@@ -29,3 +29,8 @@ All you have to do is:
 6 - Set your breakpoints and have fun debbuging!
 
 [Reference](https://github.com/Microsoft/vscode-recipes/tree/master/nodemon).
+
+
+### Required VSCode Extensions
+1 - ESLint
+2 - EditorConfig for VSCode
