@@ -1,2 +1,2 @@
-# simple-express-crud-sample
-☕ Simple express.js CRUD sample
+# simple-express-rest-crud-sample
+☕ Simple REST application made with express.js
