@@ -9,10 +9,9 @@ function getPalettes (req, res) {
 	]);
 }
 
-function postPalettes(req, res) {
+function postPalettes(body) {
 	res.status(200).send([JSON.stringify(body)]);
-		
-		
+				
 	
 }
 
