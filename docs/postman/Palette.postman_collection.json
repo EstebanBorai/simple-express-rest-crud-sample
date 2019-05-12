@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "ad52749b-8b13-4142-983e-c76fc2cbafca",
+		"name": "Palette",
+		"description": "Collection of REST API Requests for Palette.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Palettes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4200/api/palette/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4200",
+					"path": [
+						"api",
+						"palette",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Palette",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\": \"test2\",\n        \"name\": \"Palette 02 - Test Post\",\n        \"colors\": [\n            \"#aaaaaa\",\n            \"#bbbbbb\",\n            \"#cccccc\",\n            \"#dddddd\",\n            \"#eeeeee\"\n        ],\n        \"dateCreated\": \"2019-05-12T02:08:29.110Z\"\n    }\n]"
+				},
+				"url": {
+					"raw": "http://localhost:4200/api/palette/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4200",
+					"path": [
+						"api",
+						"palette",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

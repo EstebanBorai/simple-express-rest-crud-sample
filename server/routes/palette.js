@@ -1,6 +1,5 @@
 const { Router } = require('express');
-const { getPalettes } = require('../controllers/palette.js');
-const { postPalletes } = require('../controllers/palette.js');
+const { getPalettes, postPalettes } = require('../controllers/palette.js');
 
 const router = Router();
 
@@ -9,7 +8,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-	return postPalletes(req, res);
+	return postPalettes(req, res);
 });
 
 module.exports = router;

@@ -14,6 +14,7 @@ function postPalettes(req, res) {
 	const {body} = req;  
 	res.status(200).send(JSON.stringify(body));				
 }
+
 module.exports = {
 	getPalettes,
 	postPalettes
