@@ -1,3 +1,4 @@
+
 function getPalettes (req, res) {
 	res.status(200).send([
 		{
@@ -9,6 +10,11 @@ function getPalettes (req, res) {
 	]);
 }
 
+function postPalettes(req, res) {
+	const {body} = req;  
+	res.status(200).send(JSON.stringify(body));				
+}
 module.exports = {
-	getPalettes
+	getPalettes,
+	postPalettes
 };
