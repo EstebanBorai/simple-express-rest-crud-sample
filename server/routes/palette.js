@@ -8,8 +8,7 @@ router.get('/', (req, res) => {
 	return getPalettes(req, res);
 });
 
-router.post('/',(req, res) =>{
-	const{ body } = req;
+router.post('/', (req, res) => {
 	return postPalletes(req, res);
 });
 
