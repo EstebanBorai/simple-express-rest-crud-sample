@@ -7,14 +7,23 @@
 git clone https://github.com/gitpullsh/simple-express-rest-crud-sample.git
 
 # install dependencies
-cd simple-express-rest-crud-sample/
+cd simple-express-rest-crud-sample/server/
 yarn
 
 # run the server
-yarn run server
+yarn start
 
 # open your browser at the following URL
 # http://localhost:4200/api/palette
+```
+
+### Run using Docker
+```bash
+# build Docker assets
+docker-compose build
+
+# run Docker container
+docker-compose up
 ```
 
 ### Debugging
