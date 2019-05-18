@@ -4,15 +4,16 @@ services:
   server:
     build: server/
     depends_on:
-      - db
+      - mongo
     ports:
       - "4200:4200"
   
-  db:
-    image: mongo
-    restart: always
-    ports: 
+  mongo:
+    image: mongo    
+    ports:
       - "27017:27017"
+    restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: 'admin'
-      MONGO_INITDB_ROOT_PASSWORD: 'admin'
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_DATABASE: simple-express-rest-crud-sample
