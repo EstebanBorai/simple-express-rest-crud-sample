@@ -4,7 +4,7 @@
 ### Run the sample locally
 ```bash
 # clone the repository locally
-git clone https://github.com/gitpullsh/simple-express-rest-crud-sample.git
+git clone https://github.com/estebanborai/simple-express-rest-crud-sample.git
 
 # install dependencies
 cd simple-express-rest-crud-sample/server/
