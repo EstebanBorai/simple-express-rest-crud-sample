@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Simple REST application made with express.js",
   "main": "server/app.js",
-  "repository": "https://github.com/gitpullsh/simple-express-rest-crud-sample.git",
+  "repository": "https://github.com/estebanborai/simple-express-rest-crud-sample.git",
   "author": "Esteban Borai <estebanborai@outlook.com>",
   "license": "MIT",
   "scripts": {
