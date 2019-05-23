@@ -20,10 +20,7 @@ yarn start
 ### Run using Docker
 ```bash
 # build Docker assets
-docker-compose build
-
-# run Docker container
-docker-compose up
+docker-compose up --build
 ```
 
 ##### SSH into Docker container

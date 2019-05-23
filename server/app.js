@@ -21,9 +21,13 @@ const mongoDBInstance = `mongodb://mongo:${MONGO_DB_PORT}/${MONGO_DB_DATABASE}`;
 
 mongoose.connect(
 	mongoDBInstance, 
-	{ useNewUrlParser: true }
-).then((res) => {
-	console.log(`Connected to ${mongoDBInstance}`, res); // eslint-disable-line
+	{ 
+    user: 'admin',
+    pass: 'admin',
+    useNewUrlParser: true 
+  }
+).then(() => {
+	console.log(`Connected to ${mongoDBInstance}`); // eslint-disable-line
 }).catch((err) => {
 	if (err) {
 		console.error('Something went wrong at the moment to connect to the database', // eslint-disable-line

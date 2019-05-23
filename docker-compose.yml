@@ -9,7 +9,7 @@ services:
       - "4200:4200"
   
   mongo:
-    image: mongo    
+    build: database/
     ports:
       - "27017:27017"
     restart: always
