@@ -23,6 +23,16 @@ yarn start
 docker-compose up --build
 ```
 
+### Build an run MongoDB
+```bash
+# step into simple-express-rest-crud-sample/database/
+# build docker image and add the tag "simple-express-rest-crud-sample-database"
+docker build -t simple-express-rest-crud-sample-database .
+
+# run docker container with the recently builded image
+docker run --net=host -p 27017:27017 simple-express-rest-crud-sample-database
+```
+
 ##### SSH into Docker container
 There is a docker exec command that can be used to connect to a container that is already running.
 

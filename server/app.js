@@ -11,10 +11,11 @@ dotenv.config();
 const app = express();
 const { 
   SERVER_PORT,
+  USE_DATABASE,
   MONGO_DB_PORT,
   MONGO_DB_USERNAME,
   MONGO_DB_PASSWORD,
-  MONGO_DB_DATABASE 
+  MONGO_DB_DATABASE
 } = process.env;
 
 app.use(cors());
@@ -38,7 +39,11 @@ const connectWithRetry = function() {
   });
 };
 
-connectWithRetry();
+if (USE_DATABASE === 'true') {
+  connectWithRetry();
+} else {
+  console.warn('WARNING: USE_DATABASE ENV VARIABLE IS FALSE.');
+}
 
 app.listen(SERVER_PORT, () => {
 	console.log(`Running server at http://localhost:${SERVER_PORT}`); // eslint-disable-line
