@@ -33,6 +33,29 @@ docker build -t simple-express-rest-crud-sample-database .
 docker run --net=host -p 27017:27017 simple-express-rest-crud-sample-database
 ```
 
+### Use local MongoDB instance
+This project supports a local MongoDB instance.
+To use a MongoDB connection hosted by your system and not in Docker, you must set the MODE environment
+variable in `.env` file to "DEV" as follows:
+
+```
+// server/.env
+MODE=DEV
+SERVER_PORT=4200
+USE_DATABASE=true
+MONGO_DB_PORT=27017
+MONGO_DB_DATABASE=simple-express-rest-crud-sample
+MONGO_DB_USERNAME=admin
+MONGO_DB_PASSWORD=admin
+```
+
+This setting will attempt to connect to a MongoDB instance with the following URL:
+`mongodb://localhost:${MONGO_DB_PORT}/${MONGO_DB_DATABASE}`
+
+> The following environment variables must never change as docker-compose uses those values
+> for the connection to the database.
+> MONGO_DB_DATABASE, MONGO_DB_USERNAME, MONGO_DB_PASSWORD
+
 ##### SSH into Docker container
 There is a docker exec command that can be used to connect to a container that is already running.
 

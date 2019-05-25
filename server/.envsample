@@ -3,5 +3,5 @@ SERVER_PORT= number
 USE_DATABASE= true/false
 MONGO_DB_PORT= number
 MONGO_DB_DATABASE=simple-express-rest-crud-sample
-MONGO_DB_USERNAME= string
-MONGO_DB_PASSWORD= string
+MONGO_DB_USERNAME=admin
+MONGO_DB_PASSWORD=admin
