@@ -5,17 +5,15 @@ const cors = require('cors');
 const { json } = require('body-parser');
 const routes = require('./routes');
 const mongoose = require('mongoose');
+const getMongoInstance = require('./utils/getMongoInstance');
+const { error, info, warn } = console;
 
 dotenv.config();
 
 const app = express();
-const { 
-  SERVER_PORT,
-  USE_DATABASE,
-  MONGO_DB_PORT,
-  MONGO_DB_USERNAME,
-  MONGO_DB_PASSWORD,
-  MONGO_DB_DATABASE
+const {
+	SERVER_PORT,
+	USE_DATABASE,
 } = process.env;
 
 app.use(cors());
@@ -24,27 +22,26 @@ app.use(morgan('combined'));
 
 app.use(routes);
 
-const mongoDBInstance = `mongodb://${MONGO_DB_USERNAME}:${MONGO_DB_PASSWORD}@mongo:${MONGO_DB_PORT}/${MONGO_DB_DATABASE}`;
+const mongoDBInstance = getMongoInstance();
 
 const connectWithRetry = function() {
-  return mongoose.connect(mongoDBInstance, { 
-    user: MONGO_DB_USERNAME,
-    pass: MONGO_DB_PASSWORD,
-    useNewUrlParser: true 
-  }, (err) => {
-    if (err) {
-      console.error('Failed to connect to mongo on startup - retrying in 5 sec', err);
-      setTimeout(connectWithRetry, 5000);
-    }
-  });
+	return mongoose.connect(mongoDBInstance[0], mongoDBInstance[1], (err) => {
+
+		if (err) {
+			error(`Failed to connect to ${mongoDBInstance[0]} - retrying in 5 sec\n\n`, err);
+			setTimeout(connectWithRetry, 5000);
+		} else {
+			info(`Connected to ${mongoDBInstance[0]}\n`);
+		}
+	});
 };
 
 if (USE_DATABASE === 'true') {
-  connectWithRetry();
+	connectWithRetry();
 } else {
-  console.warn('WARNING: USE_DATABASE ENV VARIABLE IS FALSE.');
+	warn('⚠ WARNING: USE_DATABASE ENV VARIABLE IS FALSE.');
 }
 
 app.listen(SERVER_PORT, () => {
-	console.log(`Running server at http://localhost:${SERVER_PORT}`); // eslint-disable-line
+  info(`Running server at http://localhost:${SERVER_PORT}`); // eslint-disable-line
 });
