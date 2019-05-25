@@ -56,7 +56,7 @@ This setting will attempt to connect to a MongoDB instance with the following UR
 > for the connection to the database.
 > MONGO_DB_DATABASE, MONGO_DB_USERNAME, MONGO_DB_PASSWORD
 
-##### SSH into Docker container
+### SSH into Docker container
 There is a docker exec command that can be used to connect to a container that is already running.
 
 ```bash
