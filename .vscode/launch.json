@@ -9,5 +9,15 @@
           "restart": true,
           "protocol": "inspector",
       },
+      {
+        "name": "Node: Docker Debug",
+        "type": "node",
+        "request": "attach",
+        "port": 9229,
+        "address": "localhost",
+        "localRoot": "${workspaceFolder}/server",
+        "remoteRoot": "/node-express-simple/server",
+        "protocol": "inspector"
+      }
   ]
 }

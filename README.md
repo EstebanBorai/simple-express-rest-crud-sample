@@ -66,6 +66,11 @@ docker exec -it <container id> /bin/bash
 Get the docker <container id> using `docker container ls` in your terminal, copy the *CONTAINER ID* and change it for *<container id>* in the command above.
 
 ### Debugging
+Theres two ways to debug this application:
+  - Locally
+  - Docker
+
+##### Locally
 Here are some steps to setup the environment in order to debug this application using VSCode and Nodemon.
 This project already has the configuration loaded at: `.vscode/launch.json`.
 All you have to do is:
@@ -79,6 +84,27 @@ All you have to do is:
 
 [Reference](https://github.com/Microsoft/vscode-recipes/tree/master/nodemon).
 
+##### Docker
+Use the *docker-compose.debug.yml* file instead *docker-compose.yml* to setup the environment.
+```bash
+docker-compose -f docker-compose.debug.yml up --build
+```
+
+This command will gather Docker images and build them using the configuration defined in the *docker-compose.debug.yml* file.
+
+When Docker is done, you will be able to attach to the process using either Google Chrome Devtools or Visual Studio Code.
+
+- Google Chrome Devtools:
+Open Google Chrome in the following URL: `chrome://inspect/#devices`.
+Click on `inspect`, in the list of severs behind the options, this will open a new window
+with Chrome Devtools in the context of your app.
+
+A breakpoint in the first line of `app.js` will be active for the moment you open the "Sources" tab.
+
+- Visual Studio Code
+Step into the Debug tab in your Visual Studio Code instance.
+Select "Node: Docker Debug" option from the list in the top.
+Finally, click the "start" icon.
 
 ### Required VSCode Extensions
 1. ESLint

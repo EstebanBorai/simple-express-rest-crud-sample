@@ -1,0 +1,23 @@
+version: "3.1"
+
+services:
+  server: 
+    build: server/
+    depends_on:
+      - mongo
+    tty: true
+    ports:
+      - "4200:4200"
+      - "9229:9229"
+    command:
+      - node
+      - "--inspect-brk=0.0.0.0"
+      - "." 
+
+  mongo:
+    build: database/
+    ports:
+      - "27017:27017"
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: simple-express-rest-crud-sample
